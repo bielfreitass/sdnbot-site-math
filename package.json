@@ -1,0 +1,12 @@
+{
+  "name": "sdnbot-site",
+  "version": "1.0.0",
+  "description": "S.D.N Bot, automação, diversão e mais!",
+  "license": "ISC",
+  "author": "Matheus",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "python -m http.server 8080"
+  }
+}

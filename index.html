@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>S.D.N Bot | Venda de Bot WhatsApp</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* ===== GRADIENT ANIMADO SINCRONIZADO ===== */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.gradient {
+    background: linear-gradient(
+        135deg,
+        #ff8c1a 0%,
+        #7c3aed 50%,
+        #ff8c1a 100%
+    );
+    background-size: 300% 300%;
+    animation: gradientMove 10s ease infinite;
+}
+
+/* ===== BODY ===== */
+body {
+    position: relative; /* MUITO IMPORTANTE */
+    background: #ff8c1a;
+    color: #fff;
+}
+
+/* IMAGENS NOS CANTOS DO SITE (NÃO DA TELA) */
+.corner {
+    position: absolute; /* NÃO FIXED */
+    width: 110px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.top-left {
+    top: 0;
+    left: 0;
+}
+
+.top-right {
+    top: 0;
+    right: 0;
+}
+
+.bottom-left {
+    bottom: 0;
+    left: 0;
+}
+
+.bottom-right {
+    bottom: 0;
+    right: 0;
+}
+
+/* ===== HEADER ===== */
+header {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+header p {
+    font-size: 18px;
+}
+
+/* ===== SEÇÃO ===== */
+section {
+    padding: 40px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* ===== CARDS ===== */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #1f2933;
+    border-radius: 12px;
+    padding: 22px;
+    text-align: center;
+}
+
+.price {
+    font-size: 1.6em;
+    color: #7dd3fc;
+    margin: 12px 0;
+}
+
+/* ===== BOTÃO COMPRAR / ATIVAR ===== */
+.buy-btn {
+    position: relative;
+    background: #7dd3fc;
+    border: none;
+    border-radius: 999px;
+    padding: 10px 20px; /* BOTÃO MENOR */
+    cursor: pointer;
+    transition: transform 0.4s ease;
+    font-size: 14px;
+    color: #fff;
+}
+
+.buy-btn.active {
+    transform: scale(1.05);
+}
+
+/* LINHA BRANCA EM VOLTA DO BOTÃO (APÓS CLICAR) */
+.buy-btn.active::after {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    border-radius: 999px;
+    border: 2px solid #fff;
+    animation: outlineRun 2.5s linear;
+}
+
+@keyframes outlineRun {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.footer-actions {
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.termos-btn {
+    background: transparent;
+    border: 1.5px solid #fff;
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 600px) {
+    .corner {
+        width: 80px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- IMAGENS NOS CANTOS -->
+<img src="canto.png" class="corner top-left">
+<img src="canto.png" class="corner top-right">
+<img src="canto.png" class="corner bottom-left">
+<img src="canto.png" class="corner bottom-right">
+
+<header class="gradient">
+    <h1>S.D.N Bot</h1>
+    <p>Bot profissional para WhatsApp • Automação • Administração</p>
+</header>
+
+<section class="gradient">
+<div class="cards">
+
+<div class="card">
+<h2>Teste Grátis</h2>
+<div class="price">R$ 0,00</div>
+<button class="buy-btn" onclick="clicarComprar(this)">ATIVAR</button>
+</div>
+
+<div class="card">
+<h2>1 Semana</h2>
+<div class="price">R$ 1,45</div>
+<button class="buy-btn" onclick="clicarComprar(this)">COMPRAR</button>
+</div>
+
+<div class="card">
+<h2>1 Mês</h2>
+<div class="price">R$ 5,15</div>
+<button class="buy-btn" onclick="clicarComprar(this)">COMPRAR</button>
+</div>
+
+<div class="card">
+<h2>2 Meses + VIP</h2>
+<div class="price">R$ 8,70</div>
+<button class="buy-btn" onclick="clicarComprar(this)">COMPRAR</button>
+</div>
+
+<div class="card">
+<h2>Anual</h2>
+<div class="price">R$ 12,99</div>
+<button class="buy-btn" onclick="clicarComprar(this)">COMPRAR</button>
+</div>
+
+</div>
+</section>
+
+<footer>
+<div class="footer-actions gradient">
+    <button class="termos-btn" onclick="abrirTermos()">Termos</button>
+    <button class="termos-btn" onclick="window.open('https://wa.me/558391762245','_blank')">Suporte</button>
+</div>
+
+<p style="margin-top:15px;">© 2026 S.D.N Bot • Todos os direitos reservados.</p>
+</footer>
+
+<script>
+function clicarComprar(btn) {
+    btn.classList.add("active");
+
+    setTimeout(() => {
+        btn.classList.remove("active");
+    }, 2500);
+
+    setTimeout(() => {
+        window.open("https://wa.me/558391762245?text=Olá,+Matheus!+Gostaria+de+alugar+o+S.D.N.+Bot+por+(seu+plano+aqui)!", "_blank");
+    }, 400);
+}
+
+function abrirTermos() {
+    const text = `𝅭ㅤ𝅭ㅤ⎯⎯     ִㅤㅤ𞋥 ✩ 𑄾ㅤㅤִ    ⎯⎯ ㅤ𝅭ㅤ𝅭
+⢿  ּ ֹ 🌟ᩚ⃨ ֹ ּ  ᳡ 𝓐n𝘁𝗲s ꛆׁa 𝗰oꭑ𝗽𝗿a, 𝗽𝗲ço 𝗾υe 𝗹eia 𝗮tentaꭑe𝗻𝘁𝗲 𝗮 𝗲ss𝗮𝘀 𝗿eg𝗿𝗶𝗻has 𝗾υe 𝘁eꭑo𝘀:
+︵͡⏜  ۪    ⊹ ㅤׄㅤ 𔓕   ۪  ㅤׄ   ⏜︵͡
+
+ׅ  ⡾  ֹ 💛᪲ ׅ  ֹ 1 - 2 𝓢is𝘁𝗲ꭑas: 𝗡ão 𝗲́ 𝗽erꭑ𝗶𝘁𝗶ꛆׁo 𝗾υe 𝘁e𝗻ha 2 𝗯o𝘁s 𝗻o ꭑesꭑo 𝗴𝗿𝘂𝗽𝗼 , 𝗰a𝘀o 𝘁e𝗻ha 𝗲υ 𝗹he 𝗱arei 𝘂ꭑ 𝗽ra𝘇o 𝗱e 10h 𝗽ra 𝗲scolher 𝗼 𝗺eυ 𝗼υ 𝗱o 𝗼υtro 𝗱ono! 𝐂aso 𝗲sc𝗼𝗹ha 𝗼 𝗱e𝗹e, 𝘃ocê 𝗽erꛆׁera 𝗼 𝗯𝗼𝘁 𝗲 𝗳ic𝗮rá 𝘀eꭑ 𝘀eυ 𝗿eeꭑ𝗯𝗼𝗹so!
+
+ׅ  ⡾  ֹ 🌟᪲ ׅ  ֹ 2- 𝓢paꭑ: 𝗘υ 𝗳ico 𝘃isit𝘁𝗮𝗻ꛆׁo 𝗼s 𝗴rυ𝗽os 𝗳reqυ𝗲𝗻𝘁eꭑe𝗻𝘁𝗲 , 𝗰aso 𝗲υ 𝘃eja 𝗼 𝘀eυ 𝗴rυpo 𝘀paꭑ𝗮𝗻ꛆׁo 𝗼 𝗯𝗼𝘁 , 𝗲υ 𝗹he 𝗱arei 1 𝗮𝘃𝗶𝘀𝗼 , 𝗰oꭑ 3 𝘃ocê 𝗽erꛆׁe𝗿𝗮 𝗼 𝗯𝗼𝘁 𝗽𝗲𝗿𝗺𝗮𝗻𝗲𝗻𝘁𝗲𝗺𝗲𝗻𝘁𝗲 𝗲 𝘀eꭑ 𝗿eeꭑ𝗯𝗼𝗹so
+
+ׅ  ⡾  ֹ 💛᪲ ׅ  ֹ 3 - 𝓕alar 𝗺𝗮l 𝗱o 𝘀ist𝗲ꭑa: 𝗖aso 𝗲υ 𝘃eja 𝗼 𝘀eυs 𝗺eꭑ𝗯𝗿os 𝗳ala𝗿eꭑ 𝗺𝗮l 𝗱o 𝗺eυ 𝗯𝗼𝘁 𝗻o 𝘀eυ 𝗴rυpo, 𝗲υ 𝘁erei 𝗾ue 𝗽eꛆׁir 𝗽ara 𝗽arar! 𝐀s 𝗿ec𝗹𝗮ꭑ𝗮ções 𝗱eveꭑ 𝘀er 𝗱itas 𝗻o 𝗽𝗿𝗶𝘃𝗮𝗱𝗼 ꛆׁo 𝗱𝗼𝗻𝗼 !
+
+ׅ  ⡾  ֹ 🌟᪲ ׅ  ֹ 4 - 𝓟ressa: 𝗖aso 𝗼 𝗻ύꭑero 𝗱o 𝗯𝗼𝘁 𝗰aia 𝗼υ 𝗲υ 𝗻ão 𝘁enha 𝗽agaꛆׁo 𝗮 𝗵ost, 𝗲υ 𝗽eço 𝗾υe 𝗲spere! 𝐂aso 𝗺e 𝗮pre𝘀𝘀e 𝘃ocê 𝗽erꛆׁer𝗮 𝗼 𝗯𝗼𝘁 𝘀eꭑ 𝗿eꭑ𝗯𝗼𝗹so
+
+ׅ  ⡾  ֹ 💛᪲ ׅ  ֹ 5 - +18: 𝗖aso 𝗼 𝗰oꭑpraꛆׁor 𝗼υ 𝗮lgυꭑ 𝗺eꭑbro 𝗱o 𝘀eυ 𝗴rυpo 𝘁enha 𝗮cesso 𝗮 𝗰oꭑanꛆׁos +18, 𝗲υ 𝗻ão 𝗽oꛆׁerei 𝗳azer 𝗻aꛆׁ𝗮 𝗮 𝗿𝗲𝘀𝗽𝗲𝗶𝘁𝗼 𝗽or 𝗾υe 𝗳oi 𝗲𝗹𝗲 𝗾υeꭑ 𝗰oꭑproυ, 𝘃ocê 𝗽oꛆׁe 𝗶mpeꛆׁir 𝗲le 𝗺as 𝗲υ 𝗻ão 𝗽oꛆׁerei 𝗳azer 𝗻𝗮𝗱𝗮 𝗮 𝗿espeito
+𝅭ㅤ𝅭ㅤ⎯⎯   ִㅤㅤ୨ ♡ ୧ㅤㅤִ  ⎯⎯ ㅤ𝅭ㅤ𝅭
+
+ּ  ֹ  ׅ ⠟ ּ  ᪬  ๑  ᩧ  🌟̶  ּ ֹ 𝓒oncorꛆׁar 𝗰oꭑ 𝗼s 𝘁erꭑos 𝗲 𝗰onꛆׁições?
+
+> ᅟᅟ©  ּ ֹ 🇸🇱᪲ ֹ ּ  𝗡ιƙ꯭ƙι   𝗼ɳ   ριɳ  ֹ🫙̶ׅ`;
+const texto = encodeURIComponent(text);
+window.open(`https://wa.me/558391762245?text=${texto}`, "_blank");
+}
+</script>
+
+</body>
+</html>
