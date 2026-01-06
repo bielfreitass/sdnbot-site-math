@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>S.D.N Bot | Vendas de Bot</title>
+<title>S.D.N Bot | Venda de Bot WhatsApp</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -13,7 +13,6 @@
     font-family: Arial, sans-serif;
 }
 
-/* ===== GRADIENT ANIMADO SINCRONIZADO ===== */
 @keyframes gradientMove {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -21,52 +20,29 @@
 }
 
 .gradient {
-    background: linear-gradient(
-        135deg,
-        #ff8c1a 0%,
-        #7c3aed 50%,
-        #ff8c1a 100%
-    );
+    background: linear-gradient(135deg,#ff8c1a 0%,#7c3aed 50%,#ff8c1a 100%);
     background-size: 300% 300%;
     animation: gradientMove 10s ease infinite;
 }
 
-/* ===== BODY ===== */
 body {
-    position: relative; /* MUITO IMPORTANTE */
+    position: relative;
     background: #ff8c1a;
     color: #fff;
 }
 
-/* IMAGENS NOS CANTOS DO SITE (NÃO DA TELA) */
 .corner {
-    position: absolute; /* NÃO FIXED */
+    position: absolute;
     width: 110px;
     z-index: 1;
     pointer-events: none;
 }
 
-.top-left {
-    top: 0;
-    left: 0;
-}
+.top-left { top: 0; left: 0; }
+.top-right { top: 0; right: 0; }
+.bottom-left { bottom: 0; left: 0; }
+.bottom-right { bottom: 0; right: 0; }
 
-.top-right {
-    top: 0;
-    right: 0;
-}
-
-.bottom-left {
-    bottom: 0;
-    left: 0;
-}
-
-.bottom-right {
-    bottom: 0;
-    right: 0;
-}
-
-/* ===== HEADER ===== */
 header {
     padding: 60px 20px;
     text-align: center;
@@ -74,21 +50,25 @@ header {
 
 header h1 {
     font-size: 36px;
-    font-weight: bold;
 }
 
 header p {
     font-size: 18px;
 }
 
-/* ===== SEÇÃO ===== */
+.credits {
+    margin-top: 10px;
+    font-size: 14px;
+    opacity: 0.9;
+    line-height: 1.4;
+}
+
 section {
     padding: 40px 20px;
     max-width: 1100px;
     margin: auto;
 }
 
-/* ===== CARDS ===== */
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -108,13 +88,12 @@ section {
     margin: 12px 0;
 }
 
-/* ===== BOTÃO COMPRAR / ATIVAR ===== */
 .buy-btn {
     position: relative;
     background: #7dd3fc;
     border: none;
     border-radius: 999px;
-    padding: 10px 20px; /* BOTÃO MENOR */
+    padding: 10px 20px;
     cursor: pointer;
     transition: transform 0.4s ease;
     font-size: 14px;
@@ -125,7 +104,6 @@ section {
     transform: scale(1.05);
 }
 
-/* LINHA BRANCA EM VOLTA DO BOTÃO (APÓS CLICAR) */
 .buy-btn.active::after {
     content: "";
     position: absolute;
@@ -140,7 +118,6 @@ section {
     to { opacity: 0; }
 }
 
-/* ===== FOOTER ===== */
 footer {
     text-align: center;
     padding: 30px 20px;
@@ -163,18 +140,14 @@ footer {
     cursor: pointer;
 }
 
-/* ===== RESPONSIVO ===== */
 @media (max-width: 600px) {
-    .corner {
-        width: 80px;
-    }
+    .corner { width: 80px; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- IMAGENS NOS CANTOS -->
 <img src="canto.png" class="corner top-left">
 <img src="canto.png" class="corner top-right">
 <img src="canto.png" class="corner bottom-left">
@@ -182,14 +155,11 @@ footer {
 
 <header class="gradient">
     <h1>S.D.N Bot</h1>
-    <p class="subtitle">
-  Bot profissional para WhatsApp • Automação • Administração
-</p>
-
-<p class="credits">
-  Dono: Matheus<br>
-  Desenvolvedor do Site: Biel (+55 86 8855-9115)
-</p>
+    <p>Bot profissional para WhatsApp • Automação • Administração</p>
+    <div class="credits">
+        Dono: Matheus<br>
+        Desenvolvedor do Site: Biel (+55 86 8855-9115)
+    </div>
 </header>
 
 <section class="gradient">
@@ -198,31 +168,31 @@ footer {
 <div class="card">
 <h2>Teste Grátis</h2>
 <div class="price">R$ 0,00</div>
-<button class="buy-btn" onclick="clicarComprar(this)">ATIVAR</button>
+<button class="buy-btn" onclick="comprar(this, 'Olá, gostaria de testar o s.d.n. bot por 1 dia')">ATIVAR</button>
 </div>
 
 <div class="card">
 <h2>1 Semana</h2>
 <div class="price">R$ 1,45</div>
-<button class="buy-btn" onclick="clicarComprar(this)">COMPRAR</button>
+<button class="buy-btn" onclick="comprar(this, 'Olá, gostaria de alugar o s.d.n. bot por 1 semana')">COMPRAR</button>
 </div>
 
 <div class="card">
 <h2>1 Mês</h2>
 <div class="price">R$ 5,15</div>
-<button class="buy-btn" onclick="clicarComprar(this)">COMPRAR</button>
+<button class="buy-btn" onclick="comprar(this, 'Olá, gostaria de alugar o s.d.n. bot por 1 mês')">COMPRAR</button>
 </div>
 
 <div class="card">
 <h2>2 Meses + VIP</h2>
 <div class="price">R$ 8,70</div>
-<button class="buy-btn" onclick="clicarComprar(this)">COMPRAR</button>
+<button class="buy-btn" onclick="comprar(this, 'Olá, gostaria de alugar o s.d.n. bot por 2 meses com vip')">COMPRAR</button>
 </div>
 
 <div class="card">
 <h2>Anual</h2>
 <div class="price">R$ 12,99</div>
-<button class="buy-btn" onclick="clicarComprar(this)">COMPRAR</button>
+<button class="buy-btn" onclick="comprar(this, 'Olá, gostaria de alugar o s.d.n. bot por 1 ano')">COMPRAR</button>
 </div>
 
 </div>
@@ -233,25 +203,19 @@ footer {
     <button class="termos-btn" onclick="abrirTermos()">Termos</button>
     <button class="termos-btn" onclick="window.open('https://wa.me/558391762245','_blank')">Suporte</button>
 </div>
-
 <p style="margin-top:15px;">© 2026 S.D.N Bot • Todos os direitos reservados.</p>
 </footer>
 
 <script>
-function clicarComprar(btn) {
+function comprar(btn, mensagem) {
     btn.classList.add("active");
-
+    setTimeout(() => btn.classList.remove("active"), 2500);
     setTimeout(() => {
-        btn.classList.remove("active");
-    }, 2500);
-
-    setTimeout(() => {
-        window.open("https://wa.me/558391762245?text=Olá,+Matheus!+Gostaria+de+alugar+o+S.D.N.+Bot+por+(seu+plano+aqui)!", "_blank");
+        window.open(`https://wa.me/558391762245?text=${encodeURIComponent(mensagem)}`, "_blank");
     }, 400);
 }
-
 function abrirTermos() {
-    const text = `𝅭ㅤ𝅭ㅤ⎯⎯     ִㅤㅤ𞋥 ✩ 𑄾ㅤㅤִ    ⎯⎯ ㅤ𝅭ㅤ𝅭
+    const termos = `𝅭ㅤ𝅭ㅤ⎯⎯     ִㅤㅤ𞋥 ✩ 𑄾ㅤㅤִ    ⎯⎯ ㅤ𝅭ㅤ𝅭
 ⢿  ּ ֹ 🌟ᩚ⃨ ֹ ּ  ᳡ 𝓐n𝘁𝗲s ꛆׁa 𝗰oꭑ𝗽𝗿a, 𝗽𝗲ço 𝗾υe 𝗹eia 𝗮tentaꭑe𝗻𝘁𝗲 𝗮 𝗲ss𝗮𝘀 𝗿eg𝗿𝗶𝗻has 𝗾υe 𝘁eꭑo𝘀:
 ︵͡⏜  ۪    ⊹ ㅤׄㅤ 𔓕   ۪  ㅤׄ   ⏜︵͡
 
@@ -269,9 +233,13 @@ function abrirTermos() {
 ּ  ֹ  ׅ ⠟ ּ  ᪬  ๑  ᩧ  🌟̶  ּ ֹ 𝓒oncorꛆׁar 𝗰oꭑ 𝗼s 𝘁erꭑos 𝗲 𝗰onꛆׁições?
 
 > ᅟᅟ©  ּ ֹ 🇸🇱᪲ ֹ ּ  𝗡ιƙ꯭ƙι   𝗼ɳ   ριɳ  ֹ🫙̶ׅ`;
-const texto = encodeURIComponent(text);
-window.open(`https://wa.me/558391762245?text=${texto}`, "_blank");
+
+    window.open(
+        `https://wa.me/558391762245?text=${encodeURIComponent(termos)}`,
+        "_blank"
+    );
 }
+</script>
 </script>
 
 </body>
